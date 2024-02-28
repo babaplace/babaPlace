@@ -106,7 +106,10 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
                 </FormItem>
               )}
             />
-            <Button className="text-white" type="submit">
+            <Button
+              className="w-full rounded-none mt-4 px-4 py-3 text-white font-bold rounded"
+              type="submit"
+            >
               Envoyer
             </Button>
           </form>

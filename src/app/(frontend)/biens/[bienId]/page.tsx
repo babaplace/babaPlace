@@ -2,6 +2,7 @@ import { prisma } from "@/db/prisma";
 import { ContactForm } from "@/ui/components/FormContact";
 import OptionProduct from "@/ui/components/OptionProduct";
 import { Bed, Building2, Home, Landmark, LocateFixed } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 const SingleBienPage = async ({ params }: { params: { bienId: string } }) => {
@@ -16,30 +17,51 @@ const SingleBienPage = async ({ params }: { params: { bienId: string } }) => {
         </h1>
       </section>
 
-      <section className="px-4 py-4 bg-gray-200 lg:px-20 lg:py-8">
-        <div className="flex flex-wrap lg:space-x-12">
-          <div className="lg:w-3/5">
-            <h1 className="mb-4 text-2xl font-medium text-center text-gray-900 lg:text-3xl">
-              {property.title}
-            </h1>
-            <img src={property.imageUrl} alt="property" className="w-full" />
-
-            <div className="mt-4">
-              <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
-                <div>
-                  <h3 className="font-bold">Description</h3>
-
-                  <div className="space-y-6">
-                    <p className="text-base text-gray-900">
-                      {property.description}
-                    </p>
-                  </div>
-                </div>
+      <div>
+        <div className="p-6 max-w-screen-xl mx-auto">
+          <div className="grid items-start grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="w-full lg:sticky top-0 sm:flex gap-2">
+              <Image
+                width={500}
+                height={300}
+                src={property.imageUrl}
+                alt="Product"
+                className="w-full rounded object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl font-extrabold text-gray-800">
+                {property.title}
+              </h2>
+              <div className="flex flex-wrap gap-4 mt-4">
+                <p className="text-gray-800 text-xl font-bold">
+                  <span className="text-primary">MAD</span> {property.price}
+                </p>
+                <p className="text-gray-600 text-sm">
+                  <p>MAD {property.caution}</p>{" "}
+                  <span className="text-sm ml-1">Caution</span>
+                </p>
               </div>
+              <div className="flex space-x-2 mt-2">
+                <h2 className="text-lg text-gray-800">{property.quartier}</h2>
+              </div>
+              <div className="mt-8">
+                <h3 className="text-lg font-bold text-gray-800">
+                  Nous contactez pour ce bien
+                </h3>
 
-              <h3 className="text-sm font-medium text-gray-900">Details</h3>
-
-              <div className="flex flex-wrap ">
+                <ContactForm propertyId={property.id} />
+              </div>
+              <div className="mt-8">
+                <h3 className="text-lg font-bold text-gray-800">Description</h3>
+                <ul className="space-y-3 list-disc mt-4 pl-4 text-sm text-gray-800">
+                  {property.description}
+                </ul>
+              </div>
+              <div className="mt-8 ">
+                <h3 className="text-lg font-bold text-gray-800">
+                  Plus de details
+                </h3>
                 <OptionProduct
                   title="Ville"
                   value={`${property.city}`}
@@ -63,18 +85,8 @@ const SingleBienPage = async ({ params }: { params: { bienId: string } }) => {
               </div>
             </div>
           </div>
-
-          <div className="lg:w-1/3 lg:mt-4">
-            <h4 className="text-3xl my-4 font-bold text-center text-primary">
-              Reservez maintenant ce bien
-            </h4>
-            <ContactForm propertyId={property.id} />
-            <div className="mt-4 rounded-lg">
-              <img src={property.imageUrl} alt="property" className="w-full" />
-            </div>
-          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

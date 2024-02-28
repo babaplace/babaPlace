@@ -16,7 +16,7 @@ const AllProductsA = async (props: Props) => {
           Les plus recents
         </h1>
       </div>
-      <div className="mt-4 space-x-0  max-w-screen-2xl mx-auto space-y-2 lg:flex lg:flex-nowrap lg:space-x-4 lg:space-y-0 lg:mt-20">
+      <div className="mt-4 space-x-0  max-w-screen-xl mx-auto space-y-2 lg:flex lg:flex-nowrap lg:space-x-4 lg:space-y-0 lg:mt-20">
         {biens.map((property) => (
           <ProductCard key={property.id} property={property} />
         ))}

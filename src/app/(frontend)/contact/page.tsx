@@ -1,3 +1,4 @@
+import { Button } from "@/ui/modules/shad-cn/ui/button";
 import React from "react";
 
 const ContactPage = () => {
@@ -13,44 +14,46 @@ const ContactPage = () => {
         <div className="flex items-center justify-center bg-gray-100">
           <div className="w-full px-6 py-16 bg-white rounded-lg shadow-2xl lg:w-2/5">
             <h2 className="mb-4 text-xl antialiased font-semibold text-center text-gray-800">
-              Envoyez un message
+              À la recherche d&apos;un appartement dans un endroit précis ?
+              <br />
+              Contactez-nous !
             </h2>
             <form className="mx-8 space-y-8">
               <div>
                 <input
                   type="text"
                   className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
-                  placeholder="Full Name"
+                  placeholder="Nom"
                 />
               </div>
               <div>
                 <input
                   type="text"
                   className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
-                  placeholder="Your Email"
+                  placeholder="Votre Email"
                 />
                 <span className="text-xs text-red-600">
-                  Email field required
+                  l&apos;email est requis
                 </span>
               </div>
               <div>
                 <input
-                  type="text"
+                  type="tel"
                   className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
-                  placeholder="Subject"
+                  placeholder="telephone"
                 />
               </div>
               <div>
                 <textarea
                   name="message"
                   className="w-full p-6 text-sm border-b-2 border-gray-400 rounded-lg outline-none opacity-50 focus:border-primary"
-                  placeholder="Enter your message"
+                  placeholder="un message"
                 ></textarea>
               </div>
 
-              <button className="block w-full px-2 py-4 mt-2 text-white bg-black rounded-full">
-                Send Form
-              </button>
+              <Button type="submit" className="w-full mt-2">
+                Envoyer
+              </Button>
             </form>
           </div>
         </div>

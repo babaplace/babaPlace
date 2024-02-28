@@ -1,6 +1,6 @@
 export const SITECONFIG = {
   seo: {
-    name: "Demo",
+    name: "BabaPlace",
     description: "",
   },
 };
