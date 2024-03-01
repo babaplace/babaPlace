@@ -15,8 +15,10 @@ import { Button } from "../modules/shad-cn/ui/button";
 import { Input } from "../modules/shad-cn/ui/input";
 import { Card, CardContent } from "../modules/shad-cn/ui/card";
 import { Textarea } from "../modules/shad-cn/ui/textarea";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "sonner";
 
-export const formContactSchema = z.object({
+const formContactSchema = z.object({
   name: z.string().min(2, {
     message: "le nom est obligatoire avec min 2 caractere.",
   }),
@@ -25,8 +27,10 @@ export const formContactSchema = z.object({
   message: z.string().optional(),
 });
 
+type formContactSchema = z.infer<typeof formContactSchema>;
+
 export function ContactForm({ propertyId }: { propertyId?: string }) {
-  const form = useForm<z.infer<typeof formContactSchema>>({
+  const form = useForm<formContactSchema>({
     resolver: zodResolver(formContactSchema),
     defaultValues: {
       name: "",
@@ -36,15 +40,31 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
     },
   });
 
+  const mutationContact = useMutation({
+    mutationFn: async (values: formContactSchema) => {
+      await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify({ ...values, propertyId }),
+      });
+    },
+    onSuccess: () => {
+      toast.success("Votre contact a été pris en compte ", {
+        description:
+          "On va vous contacter sous peu de temps. Merci pour votre confiance !",
+      });
+    },
+    onError: () => {
+      toast.error("Il y'a eu une erreur", {
+        description: "Veuillez ressayer Plus Tard",
+      });
+    },
+  });
+
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formContactSchema>) {
+  async function onSubmit(values: formContactSchema) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
-    await fetch("/api/send", {
-      method: "POST",
-      body: JSON.stringify({ ...values, propertyId }),
-    });
+    mutationContact.mutate(values);
   }
 
   return (
@@ -108,10 +128,11 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
               )}
             />
             <Button
-              className="w-full rounded-none mt-4 px-4 py-3 text-white font-bold rounded"
+              disabled={mutationContact.isPending}
+              className="w-full rounded-none mt-4 px-4 py-3 text-white font-bold "
               type="submit"
             >
-              Envoyer
+              {mutationContact.isPending ? "En cours..." : " Envoyer"}
             </Button>
           </form>
         </Form>

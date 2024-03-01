@@ -38,7 +38,6 @@ export default function Navigation() {
               src={SITECONFIG.logo}
               alt={SITECONFIG.seo.name}
             />
-            {/* <p className="italic font-extrabold">Roomz</p> */}
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -85,12 +84,13 @@ export default function Navigation() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              {/* <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              /> */}
-              <p className="italic font-extrabold">Roomz</p>
+              <Image
+                width={100}
+                height={50}
+                className="h-10 w-auto"
+                src={SITECONFIG.logo}
+                alt={SITECONFIG.seo.name}
+              />
             </Link>
             <button
               type="button"

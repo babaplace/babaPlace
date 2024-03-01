@@ -1,5 +1,7 @@
+import { ContactForm } from "@/ui/components/FormContact";
 import { Button } from "@/ui/modules/shad-cn/ui/button";
 import React from "react";
+import FormContactPage from "./FormContactPage";
 
 const ContactPage = () => {
   return (
@@ -18,43 +20,8 @@ const ContactPage = () => {
               <br />
               Contactez-nous !
             </h2>
-            <form className="mx-8 space-y-8">
-              <div>
-                <input
-                  type="text"
-                  className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
-                  placeholder="Nom"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
-                  placeholder="Votre Email"
-                />
-                <span className="text-xs text-red-600">
-                  l&apos;email est requis
-                </span>
-              </div>
-              <div>
-                <input
-                  type="tel"
-                  className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
-                  placeholder="telephone"
-                />
-              </div>
-              <div>
-                <textarea
-                  name="message"
-                  className="w-full p-6 text-sm border-b-2 border-gray-400 rounded-lg outline-none opacity-50 focus:border-primary"
-                  placeholder="un message"
-                ></textarea>
-              </div>
 
-              <Button type="submit" className="w-full mt-2">
-                Envoyer
-              </Button>
-            </form>
+            <FormContactPage />
           </div>
         </div>
       </section>

@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
 export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Toaster />
+      <Toaster position="top-center" richColors duration={10000} />
       {children}
     </QueryClientProvider>
   );
