@@ -3,25 +3,42 @@ import { useState } from "react";
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { Mail, Phone } from "lucide-react";
+import { SITECONFIG } from "@/config/site/siteConfig";
+import Image from "next/image";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-white">
+      <div className="w-full h-10 bg-black">
+        <div className="max-w-screen-2xl px-6  mx-auto flex justify-between items-center text-xs text-white h-full">
+          <p className="flex gap-2 items-center">
+            <Mail className="text-red-500" absoluteStrokeWidth />
+            contact@babaplace.com
+          </p>
+          <p className="flex gap-2 items-center">
+            <Phone className="text-green-500" absoluteStrokeWidth />
+            +212 68 44 99 227
+          </p>
+        </div>
+      </div>
       <nav
-        className="mx-auto flex max-w-screen-2xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-screen-2xl items-center justify-between p-6 "
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Roomz logo</span>
-            {/* <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            /> */}
-            <p className="italic font-extrabold">Roomz</p>
+            <Image
+              width={100}
+              height={50}
+              className="h-10 w-auto"
+              src={SITECONFIG.logo}
+              alt={SITECONFIG.seo.name}
+            />
+            {/* <p className="italic font-extrabold">Roomz</p> */}
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -64,7 +81,7 @@ export default function Navigation() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed top-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>

@@ -5,6 +5,7 @@ import Services from "@/ui/components/Services";
 import { prisma } from "@/db/prisma";
 import { ImagePropertyCard } from "@/ui/components/ImageProductCard";
 import LessCostProperties from "@/ui/components/LessCostProperty";
+import { AvisSection } from "@/ui/components/Avis";
 
 export default async function Home() {
   return (
@@ -14,6 +15,7 @@ export default async function Home() {
       <AllProductsA />
       <Services />
       <LessCostProperties />
+      <AvisSection />
     </main>
   );
 }

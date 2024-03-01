@@ -1,3 +1,5 @@
+import { SITECONFIG } from "@/config/site/siteConfig";
+import Image from "next/image";
 import React from "react";
 
 type Props = {};
@@ -7,7 +9,13 @@ const Footer = (props: Props) => {
     <footer className="mt-16 bg-gray-100">
       <div className="max-w-5xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="flex justify-center ">
-          {/* <x-application-logo /> */}
+          <Image
+            width={100}
+            height={50}
+            className="h-10 w-auto"
+            src={SITECONFIG.logo}
+            alt={SITECONFIG.seo.name}
+          />
         </div>
 
         <p className="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500">
