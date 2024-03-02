@@ -7,6 +7,7 @@ import { Mail, Phone } from "lucide-react";
 import { SITECONFIG } from "@/config/site/siteConfig";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Button } from "../modules/shad-cn/ui/button";
 
 export default function Navigation() {
   const router = useRouter();
@@ -84,8 +85,8 @@ export default function Navigation() {
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed top-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed top-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
@@ -108,39 +109,39 @@ export default function Navigation() {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <button
+              <div className="flex flex-col gap-4 mt-2 justify-start">
+                <Button
                   onClick={(e) => {
                     e.preventDefault();
                     router.push("/");
                     setMobileMenuOpen(false);
                   }}
-                  className=""
+                  className="bg-white text-black hover:text-white text-start flex justify-start"
                 >
                   Accueil
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={(e) => {
                     e.preventDefault();
                     router.push("/biens");
                     setMobileMenuOpen(false);
                   }}
-                  className=""
+                  className="bg-white text-black hover:text-white text-start flex justify-start"
                 >
                   Découvrir
-                </button>
+                </Button>
               </div>
               <div className="py-6">
-                <button
+                <Button
                   onClick={(e) => {
                     e.preventDefault();
                     router.push("/contact");
                     setMobileMenuOpen(false);
                   }}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-primary hover:text-white"
+                  className="w-full bg-white text-black hover:text-white text-start flex justify-start"
                 >
                   Nous Contactez
-                </button>
+                </Button>
               </div>
             </div>
           </div>
