@@ -6,7 +6,6 @@ const loading = () => {
     <div className="my-20 flex justify-center">
       <div>
         <Loader />
-        <p> Chargement...</p>
       </div>
     </div>
   );
