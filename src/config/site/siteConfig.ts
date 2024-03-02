@@ -1,5 +1,5 @@
 export const SITECONFIG = {
-  logo: "/logoTransparent.png",
+  logo: "/logo.png",
   seo: {
     name: "BabaPlace",
     description: "",
