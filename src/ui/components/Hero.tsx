@@ -13,20 +13,6 @@ const Hero = (props: Props) => {
     "https://images.unsplash.com/photo-1430285561322-7808604715df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN0dWRlbnQlMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D",
   ];
   return (
-    // <section className="p-12 text-center bg-hero bg-cover lg:p-56  text-white">
-    //   <h1 className="mb-2 text-2xl font-bold  lg:text-5xl ">
-    //     Qu&apos;elle est votre prochain Chez vous?
-    //   </h1>
-
-    //   <p className="mb-8 text-lg text-center ">
-    //     Des chambres modernes et confortables à deux pas de votre université,
-    //     avec tous les équipements nécessaires pour simplifier votre vie
-    //     étudiante.
-    //   </p>
-
-    //
-    // </section>
-
     <div>
       <ImagesSlider className="h-[40rem]" images={images}>
         <motion.div

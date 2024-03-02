@@ -6,10 +6,13 @@ import FormContactPage from "./FormContactPage";
 const ContactPage = () => {
   return (
     <div>
-      <section className="p-8 text-center bg-contact lg:p-20">
-        <h1 className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-black to-neutral-500 py-4">
-          Nous Contactez pour plus d&apos;informations
-        </h1>
+      <section className="relative p-16 text-center bg-contact bg-cover lg:p-20">
+        <div className="z-40 absolute top-0 right-0 left-0  bottom-0 flex justify-center items-center ">
+          <h1 className="font-bold text-xl md:text-4xl text-center bg-clip-text text-transparent bg-gradient-to-b from-gray-50 to-neutral-100 py-16">
+            Nous Contactez pour plus d&apos;informations
+          </h1>
+        </div>
+        <div className="absolute top-0 bottom-0 left-0 right-0 z-10 w-full h-full bg-black bg-opacity-45"></div>
       </section>
 
       <section className="px-4 py-4 bg-gray-100 lg:px-20 lg:py-20">

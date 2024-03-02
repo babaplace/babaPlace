@@ -3,14 +3,18 @@ import React from "react";
 type Props = {};
 
 const services = [
-  { title: "Rent", description: "Lorem ipsum dolor sit amet..." },
   {
-    title: "Colocation facilitée ",
+    title: "Louez Facilement",
+    description:
+      "Confortable, avec espaces communs bien entretenus, dans un environnement respectueux et inclusif.",
+  },
+  {
+    title: "Colocation  ",
     description:
       "Si vous cherchez des colocataires ou des chambres disponibles dans des logements partagés, notre service de colocation vous mettra en relation avec d'autres étudiants partageant vos intérêts et vos préférences de mode de vie.",
   },
   {
-    title: "Mise en relation facilitée",
+    title: "Mise en relation ",
     description:
       "Notre plateforme offre des outils de communication sécurisés et simplifie le processus de recherche et de réservation, vous permettant de trouver rapidement des locataires idéaux pour votre appartement en facilitant la mise en relation entre bailleurs et étudiants sérieux et qualifiés.",
   },

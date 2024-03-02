@@ -16,8 +16,9 @@ export function AvisSection() {
                 Nos clients disent
               </h2>
               <p className="text-base text-body-color dark:text-dark-6">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Découvrez ce que nos clients disent de leur expérience avec nos
+                locations d&apos;appartements. Leurs avis authentiques vous
+                aident à choisir en toute confiance.
               </p>
             </div>
           </div>
@@ -37,31 +38,51 @@ export function AvisSection() {
 const testimonials = [
   {
     quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+      "J'ai eu le plaisir de résider ici pendant 18 mois. L'emplacement était parfait pour mon travail et l'espace offrait tout le confort nécessaire.",
+    name: "Mohammed El Amrani",
+    title: "Partenaire",
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
+      "Mon expérience ici a été exceptionnelle. Pendant les deux années où j'y ai vécu, j'ai apprécié non seulement le confort mais aussi la proximité des commodités.",
+    name: "Pierre Dubois",
+    title: "Client",
   },
+
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+    quote:
+      "je suis extrêmement satisfait des services proposés par ce site de location d'appartements. La plateforme est conviviale, les outils de gestion des annonces sont efficaces et l'équipe de support est toujours disponible pour répondre à mes questions. Je recommande vivement cette plateforme à tous les propriétaires qui cherchent à louer leurs biens de manière transparente et efficace.",
+    name: "Rachid Benhaddou",
+    title: "Partenaire",
   },
   {
     quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+      "Cette résidence a été ma maison pendant un an et demi. Je ne peux pas en dire assez sur la qualité de l'hébergement et la disponibilité de l'hôte.",
+    name: "Mamadou diallo",
+    title: "Client",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "Je suis resté ici pendant deux ans et je n'aurais pas pu demander mieux. L'endroit était spacieux, bien entretenu et l'emplacement était parfait pour mes besoins.",
+    name: "Fatima Zahra Belkadi",
+    title: "Client",
+  },
+  {
+    quote:
+      "j'ai essayé différentes plateformes de location d'appartements, mais celle-ci se distingue vraiment. La procédure de publication d'annonces est simple et rapide, et j'apprécie particulièrement la facilité avec laquelle je peux communiquer avec les locataires potentiels.",
+    name: "Maria Garcia",
+    title: "Partenaire",
+  },
+  {
+    quote:
+      "Mon séjour dans cette résidence a duré deux ans et je n'aurais pas pu être plus satisfait. L'espace était bien aménagé, l'hôte était attentionné et l'emplacement était idéal.",
+    name: "Amina El Moussaoui",
+    title: "Client",
+  },
+  {
+    quote:
+      "J'ai eu la chance de louer ce logement pendant 1 an et demi et ce fut une expérience fantastique. L'espace était moderne, bien équipé et l'emplacement était idéal.",
+    name: "moussa camara",
+    title: "Client",
   },
 ];

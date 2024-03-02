@@ -127,7 +127,7 @@ export default function Navigation() {
                   Découvrir
                 </button>
               </div>
-              <div className="py-6">
+              <div className="py-6 hover:bg-primary rounded-lg">
                 <button
                   onClick={(e) => {
                     e.preventDefault();

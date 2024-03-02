@@ -26,9 +26,9 @@ const LessCostProperties = async (props: Props) => {
                     Un appartement pour vous ?
                   </h2>
                   <p className="text-base text-body-color dark:text-dark-6">
-                    There are many variations of passages of Lorem Ipsum
-                    available but the majority have suffered alteration in some
-                    form.
+                    Appartements abordables à louer, convenant à tout budget,
+                    offrant confort et commodités sans compromettre votre
+                    portefeuille.
                   </p>
                 </div>
               </div>
