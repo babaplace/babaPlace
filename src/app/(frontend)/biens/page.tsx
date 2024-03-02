@@ -7,17 +7,18 @@ import { Card, CardContent } from "@/ui/modules/shad-cn/ui/card";
 import { Handshake } from "lucide-react";
 
 type Props = {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: {
+    title?: string | undefined;
+    price?: string | undefined;
+    adresse?: string | undefined;
+  };
 };
 
 const BiensPage = async ({ searchParams }: Props) => {
-  console.log(searchParams?.title);
-
   const biens = await gellAllProperty({
-    title: String(searchParams?.title),
-    adresse: String(searchParams?.adresse),
-    price: String(searchParams?.price),
+    ...searchParams,
   });
+
   return (
     <div>
       <section className="p-8 text-center bg-biens bg-cover lg:p-20">

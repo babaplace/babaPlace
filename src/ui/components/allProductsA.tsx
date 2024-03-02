@@ -18,12 +18,12 @@ const AllProductsA = async (props: Props) => {
               <span className="mb-2 block text-lg font-semibold text-primary">
                 Recents
               </span>
-              <h2 className="mb-3 text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
-                Appartements Recents
+              <h2 className="mb-3 text-xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
+                Appartement récemment ajoutée !
               </h2>
               <p className="text-base text-body-color dark:text-dark-6">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Réservation rapide disponible. Fraîchement listée, moderne et
+                prête à accueillir votre prochain chez-vous.
               </p>
             </div>
           </div>

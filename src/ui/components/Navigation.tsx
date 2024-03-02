@@ -6,8 +6,10 @@ import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { SITECONFIG } from "@/config/site/siteConfig";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Navigation() {
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -104,26 +106,38 @@ export default function Navigation() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <Link
-                  href="/"
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("/");
+                    setMobileMenuOpen(false);
+                  }}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-primary hover:text-white"
                 >
                   Accueil
-                </Link>
-                <Link
-                  href="/biens"
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("/biens");
+                    setMobileMenuOpen(false);
+                  }}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-primary  hover:text-white"
                 >
                   Découvrir
-                </Link>
+                </button>
               </div>
               <div className="py-6">
-                <Link
-                  href="/contact"
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("/contact");
+                    setMobileMenuOpen(false);
+                  }}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-primary hover:text-white"
                 >
                   Nous Contactez
-                </Link>
+                </button>
               </div>
             </div>
           </div>
