@@ -16,14 +16,17 @@ export default function Navigation() {
     <header className="bg-white">
       <div className="w-full h-10 bg-black">
         <div className="max-w-screen-2xl px-6  mx-auto flex justify-between items-center text-xs text-white h-full">
-          <p className="flex gap-2 items-center">
+          <Link
+            href={"mailto:babaplace9@gmail.com"}
+            className="flex gap-2 items-center"
+          >
             <Mail className="text-red-500" absoluteStrokeWidth />
-            contact@babaplace.com
-          </p>
-          <p className="flex gap-2 items-center">
+            babaplace9@gmail.com
+          </Link>
+          <Link href={"tel:00224684499227"} className="flex gap-2 items-center">
             <Phone className="text-green-500" absoluteStrokeWidth />
             +212 68 44 99 227
-          </p>
+          </Link>
         </div>
       </div>
       <nav
