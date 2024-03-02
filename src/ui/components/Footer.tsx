@@ -47,7 +47,7 @@ const Footer = (props: Props) => {
             </div>
           </li>
 
-          <li className="flex items-center justify-center gap-2 text-gray-700 transition hover:text-gray-700/75">
+          <li className="flex items-center justify-center gap-2 text-primary transition hover:text-primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -63,9 +63,9 @@ const Footer = (props: Props) => {
               <rect width="20" height="16" x="2" y="4" rx="2" />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg>
-            <div className="flex flex-col">
-              <a href="mailto:ahmadwamara@gmail.com">ahmadwamara@gmail.com</a>
-              <a href="mailto:guintechprod@gmail.com">guintechprod@gmail.com</a>
+            <div className="flex flex-col text-black">
+              <a href="mailto:babaplace9@gmail.com">babaplace9@gmail.com</a>
+              <a href="mailto:babaplace@proton.me">babaplace@proton.me</a>
             </div>
           </li>
         </ul>

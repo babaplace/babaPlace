@@ -1,9 +1,10 @@
 import { prisma } from "@/db/prisma";
 import { EmailTemplate } from "@/lib/resend/template";
+import { env } from "process";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend("re_QhwXSfCn_82bw5LDkmocDwrcm4cY4WAmE");
+const resend = new Resend(env.RESEND_API_KEY);
 
 const contactSheme = z.object({
   name: z.string(),
@@ -22,8 +23,8 @@ export async function POST(request: Request) {
     });
 
     const data = await resend.emails.send({
-      from: `Acme <${safeData.email}>`,
-      to: ["sidymohamedsalim.diallo@usmba.ac.ma"],
+      from: `onboarding@resend.dev`,
+      to: "babaplace9@gmail.com",
       subject: "Prise de Contact",
       react: EmailTemplate({ userConctact: safeData }),
       text: "",
