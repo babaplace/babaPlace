@@ -115,7 +115,7 @@ export default function Navigation() {
                     router.push("/");
                     setMobileMenuOpen(false);
                   }}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-primary hover:text-white"
+                  className=""
                 >
                   Accueil
                 </button>
@@ -125,12 +125,12 @@ export default function Navigation() {
                     router.push("/biens");
                     setMobileMenuOpen(false);
                   }}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-primary  hover:text-white"
+                  className=""
                 >
                   Découvrir
                 </button>
               </div>
-              <div className="py-6 hover:bg-primary rounded-lg">
+              <div className="py-6">
                 <button
                   onClick={(e) => {
                     e.preventDefault();
