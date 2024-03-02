@@ -16,6 +16,8 @@
 # production
 /build
 
+src/app/admin
+
 # misc
 .DS_Store
 *.pem
