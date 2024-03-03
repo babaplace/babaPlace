@@ -5,6 +5,8 @@ import Footer from "@/ui/components/Footer";
 import Navigation from "@/ui/components/Navigation";
 import { SITECONFIG } from "@/config/site/siteConfig";
 import { Providers } from "@/context/Providers";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Analytics />
+        <SpeedInsights />
         <Providers>
           <Navigation />
           <div className="mx-auto ">{children}</div>
