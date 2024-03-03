@@ -7,11 +7,7 @@ import Link from "next/link";
 type Props = {};
 
 const Hero = (props: Props) => {
-  const images = [
-    "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3R1ZGVudCUyMGhvdXNlfGVufDB8fDB8fHww",
-    "https://images.unsplash.com/photo-1555962414-5c1a20592432?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0dWRlbnQlMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D",
-    "https://images.unsplash.com/photo-1430285561322-7808604715df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN0dWRlbnQlMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D",
-  ];
+  const images = ["/heroa.png", "/herob.png", "heroc.png"];
   return (
     <div>
       <ImagesSlider className="h-[40rem]" images={images}>
