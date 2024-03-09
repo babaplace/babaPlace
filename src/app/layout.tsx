@@ -7,6 +7,8 @@ import { SITECONFIG } from "@/config/site/siteConfig";
 import { Providers } from "@/context/Providers";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Head from "next/head";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +25,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-QK7YEQ2XV0"
+        ></Script>
+
+        <Script id="google-analytics">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', ${"${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}"});
+          `}
+        </Script>
+      </head>
+
       <body className={inter.className}>
         <Analytics />
         <SpeedInsights />
