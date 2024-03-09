@@ -36,7 +36,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', ${"${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}"});
+              gtag('config', 'G-QK7YEQ2XV0');
           `}
         </Script>
       </head>
