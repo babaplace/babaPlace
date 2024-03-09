@@ -47,12 +47,12 @@ const SearchSection = (props: Props) => {
     <>
       <Card className="max-lg:hidden">
         <CardContent>
-          <div className="py-10 bg-cover bg-no-repeat bg-right lg:px-16">
+          <div className="py-10 bg-cover bg-no-repeat bg-right lg:px-10">
             <div className="text-center w-full">
               <Form {...form}>
                 <form
                   action=""
-                  className="lg:inline-block  w-auto bg-gray-50 shadow-lg bg-opacity-25 p-2 rounded"
+                  className="lg:inline-block  w-auto bg-gray-100 shadow-lg bg-opacity-25 p-2 rounded"
                   onSubmit={form.handleSubmit(onSubmit)}
                 >
                   <div className="lg:flex items-center max-lg:flex max-lg:flex-col bg-gray-50 px-4 py-2 rounded">
