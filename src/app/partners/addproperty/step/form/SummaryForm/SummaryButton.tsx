@@ -4,6 +4,8 @@ import { Button } from "@/ui/modules/shad-cn/ui/button";
 import React from "react";
 import { z } from "zod";
 import { createBiens } from "../../../property.action";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 interface Props {
   successful: boolean;
@@ -43,6 +45,7 @@ const propertyScheme = z.object({
 type propertyScheme = z.infer<typeof propertyScheme>;
 
 const SummaryButton: React.FC<Props> = ({ successful, setSuccessful }) => {
+  const router = useRouter();
   const {
     Images,
     address,
@@ -103,7 +106,12 @@ const SummaryButton: React.FC<Props> = ({ successful, setSuccessful }) => {
         chambres,
         surface,
         cuisine,
-      } satisfies propertyScheme);
+      } satisfies propertyScheme).then(() => {
+        toast.success("Soumission Reussi ! ", {
+          description: "Nous allons vous contacter le plus vite possible",
+        });
+        router.push("/");
+      });
 
       console.log(res);
 

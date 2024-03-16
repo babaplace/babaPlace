@@ -16,14 +16,14 @@ const PricingForm = () => {
         </div>
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
-            <label htmlFor="city" className="text-black font-medium text-sm">
+            <label htmlFor="prix" className="text-black font-medium text-sm">
               Prix
             </label>
             <input
               type="number"
               placeholder="prix"
-              id="city"
-              name="city"
+              id="prix"
+              name="prix"
               defaultValue={prix}
               onChange={(e) => setPrix(Number(e.target.value))}
               className="text-sm text-gray-500 border border-gray-300 rounded-lg px-3 py-2.5 outline-none focus:border-primary"
@@ -31,13 +31,13 @@ const PricingForm = () => {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label htmlFor="address" className="text-black font-medium text-sm">
+            <label htmlFor="caution" className="text-black font-medium text-sm">
               Caution
             </label>
             <input
-              type="text"
+              type="number"
               placeholder="Rue hollande Mt Fleurie 2"
-              id="address"
+              id="caution"
               name="caution"
               defaultValue={caution}
               onChange={(e) => setCaution(Number(e.target.value))}
