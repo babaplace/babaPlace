@@ -16,8 +16,8 @@ export function ImagePropertyCard({
           <Image
             height={300}
             width={500}
-            src={property.imageUrl}
-            alt={property.title}
+            src={property.baseimageUrl}
+            alt={property.address}
             className="h-full w-full object-cover object-center"
           />
         </Link>
@@ -26,14 +26,14 @@ export function ImagePropertyCard({
         <h3 className="mt-6 text-base text-gray-900">
           <Link href={`/biens/${property.id}`}>
             <span className="absolute inset-0"></span>
-            {property.title}
+            {property.address}
           </Link>
         </h3>
         <div className="flex justify-between items-center">
           <p className="text-xs font-extrabold text-gray-900">
-            {property.city} {property.quartier}
+            {property.city} {property.address}
           </p>
-          <p className="text-lg font-bold text-primary">MAD {property.price}</p>
+          <p className="text-lg font-bold text-primary">MAD {property.prix}</p>
         </div>
       </div>
     </div>
