@@ -1,39 +1,88 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
+  // provider = "sqlite"
+  // url      = env("DATABASE_URL")
+
   provider  = "postgresql"
   url       = env("POSTGRES_PRISMA_URL")
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model Property {
-  id String @id @default(cuid())
+model Partner {
+  id           String        @id @default(uuid())
+  name         String
+  email        String?
+  phone        String?
+  appartements Appartement[]
+  chambres     Chambres[]
 
-  title       String
-  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
 
-  quartier    String
-  adresse     String
-  price       String
-  rooms       String
-  floors      String
-  caution     String
-  postal_code String
-  city        String
+model Media {
+  id            String       @id @default(uuid())
+  url           String
+  size          Int?
+  type          String
+  uploadedAt    DateTime?
+  appartementId String?
+  chambreId     String?
+  chambre       Chambres?    @relation("chambresMedia", fields: [chambreId], references: [id])
+  Appartement   Appartement? @relation("appartementMedia", fields: [appartementId], references: [id])
 
-  imageUrl String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
 
-  sold Boolean
+model Appartement {
+  id           String   @id @default(uuid())
+  city         String
+  address      String
+  chambres     Int?
+  salons       Boolean?
+  toilettes    Int
+  surface      Int
+  nbreEtages   Int
+  terasse      Boolean?
+  niveau       Int
+  balcon       Boolean?
+  cuisine      Int?
+  details      String?
+  prix         Float
+  caution      Float
+  baseimageUrl String
+  partnerId    String
+  partner      Partner  @relation(fields: [partnerId], references: [id])
+  medias       Media[]  @relation("appartementMedia")
 
-  createdAt DateTime  @default(now())
-  updatedAt DateTime? @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
 
-  Contact Contact[]
+model Chambres {
+  id        String   @id @default(uuid())
+  city      String
+  address   String
+  toilettes Int
+  surface   Int
+  terasse   Boolean?
+  niveau    Int
+  balcon    Boolean?
+  cuisine   Int?
+  details   String?
+  prix      Float
+  caution   Float
+  partnerId String
+
+  partner Partner @relation(fields: [partnerId], references: [id])
+  mediass Media[] @relation("chambresMedia")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Contact {
@@ -44,5 +93,6 @@ model Contact {
   message    String?
   propertyId String?
 
-  property Property? @relation(fields: [propertyId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

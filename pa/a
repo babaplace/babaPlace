@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+  // provider  = "postgresql"
+  // url       = env("POSTGRES_PRISMA_URL")
+  // directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Partner {
+  id    String  @id @default(uuid())
+  name  String
+  email String?
+  phone String?
+
+  appartements Appartement[]
+  chambres     Chambres[]
+}
+
+model AppartementMedia {
+  id            String      @id @default(uuid())
+  url           String
+  size          Int?
+  type          String // image ou video
+  uploadedAt    DateTime?
+  // Les autres champs peuvent être ajoutés ici en fonction de votre utilisation réelle
+  appartementId String
+  Appartement   Appartement @relation(fields: [appartementId], references: [id], name: "appartementMedia")
+}
+
+model ChambresMedia {
+  id         String    @id @default(uuid())
+  url        String
+  size       Int?
+  type       String // image ou video
+  uploadedAt DateTime?
+  // Les autres champs peuvent être ajoutés ici en fonction de votre utilisation réelle
+
+  chambreId String?
+  chambre   Chambres? @relation(fields: [chambreId], references: [id], name: "chambresMedia")
+}
+
+model Appartement {
+  id         String   @id @default(uuid())
+  city       String
+  address    String
+  chambres   Int?
+  salons     Boolean?
+  toilettes  Int
+  surface    Int
+  nbreEtages Int
+  terasse    Boolean?
+  niveau     Int
+  balcon     Boolean?
+  cuisine    Int?
+  details    String?
+  prix       Float
+  caution    Float
+
+  partnerId String
+  partner   Partner @relation(fields: [partnerId], references: [id])
+
+  medias AppartementMedia[] @relation(name: "appartementMedia")
+}
+
+model Chambres {
+  id        String   @id @default(uuid())
+  city      String
+  address   String
+  toilettes Int
+  surface   Int
+  terasse   Boolean?
+  niveau    Int
+  balcon    Boolean?
+  cuisine   Int?
+  details   String?
+  prix      Float
+  caution   Float
+
+  partnerId String
+  partner   Partner @relation(fields: [partnerId], references: [id])
+
+  mediass ChambresMedia[] @relation(name: "chambresMedia")
+}
+
+model Contact {
+  id         String  @id @default(cuid())
+  email      String
+  name       String
+  phone      String?
+  message    String?
+  propertyId String?
+}

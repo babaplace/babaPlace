@@ -8,27 +8,11 @@ type formSearchType = {
 };
 
 export const gellAllProperty = (values: formSearchType) => {
-  console.log(values);
+  const properties = prisma.appartement.findMany();
 
-  if (values.adresse || values.price || values.title) {
-    const properties = prisma.property.findMany({
-      where: {
-        title: {
-          contains: values.title,
-        },
-        adresse: {
-          contains: values.adresse,
-        },
-        price: {
-          lte: values.price,
-        },
-      },
-    });
+  console.log(properties);
 
-    return properties;
-  } else {
-    return prisma.property.findMany();
-  }
+  return properties;
 };
 
 export type PropertyQueryType = Prisma.PromiseReturnType<

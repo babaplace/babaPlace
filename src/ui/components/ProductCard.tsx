@@ -8,6 +8,8 @@ type Props = {
 };
 
 const ProductCard = ({ property }: Props) => {
+  console.log(property);
+
   return (
     <div className="md:max-w-xl max-h-lvh bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href={`/biens/${property.id}`}>
@@ -15,23 +17,21 @@ const ProductCard = ({ property }: Props) => {
           className="w-full lg:h-96 lg:w-[30rem]"
           width={600}
           height={200}
-          src={property.imageUrl}
+          src={property.baseimageUrl}
           alt=""
         />
       </a>
       <div className="p-5">
         <a href="#">
           <h5 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {property.title}
+            {property.city}
           </h5>
         </a>
-        <p className="text-xs text-gray-500 italic">
-          {property.adresse} - {property.quartier} - {property.city}
-        </p>
+        <p className="text-xs text-gray-500 italic">{property.address}</p>
 
         <div className="flex justify-between items-center">
-          <p>{property.rooms} Chambres</p>
-          <p className="text-lg font-bold">{property.price} MAD</p>
+          <p>{property.chambres} Chambres</p>
+          <p className="text-lg font-bold">{property.prix} MAD</p>
         </div>
         <div className="flex justify-end my-2">
           <Link
@@ -48,9 +48,9 @@ const ProductCard = ({ property }: Props) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>

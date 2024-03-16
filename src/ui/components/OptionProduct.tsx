@@ -4,7 +4,7 @@ import React from "react";
 type Props = {
   Icon: LucideIcon;
   title: string;
-  value: string;
+  value: string | number;
 };
 
 const OptionProduct = ({ Icon, title, value }: Props) => {

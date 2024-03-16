@@ -12,8 +12,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../modules/shad-cn/ui/button";
 import { useRouter } from "next/navigation";
-import { Card, CardContent } from "../modules/shad-cn/ui/card";
-import { CaseUpper, DollarSign, Home, Locate, Search } from "lucide-react";
 
 type Props = {};
 

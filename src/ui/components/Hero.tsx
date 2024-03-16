@@ -26,26 +26,26 @@ const Hero = (props: Props) => {
           className="z-50 max-md:mx-14 flex flex-col justify-center items-center"
         >
           <motion.h1 className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-            Qu&apos;elle est votre prochain Chez vous?
+            Trouver un Logement - Mettre en location
           </motion.h1>
           <motion.p className="font-bold text-xs md:text-sm text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-            Des chambres modernes et confortables à deux pas de votre
-            université, <br /> avec tous les équipements nécessaires pour
-            simplifier votre vie étudiante.
+            Des chambres modernes et confortables à deux pas de votre université
+            , <br /> avec tous les équipements nécessaires pour simplifier votre
+            vie étudiante.
           </motion.p>
           <div>
             <div className="flex items-center justify-center space-x-2">
               <Link
-                href="/biens"
+                href="/partners/addproperty"
                 className="px-2 py-2 max-md:text-xs text-gray-800 text-gray-900 bg-gray-300 border rounded rounded-lg lg:px-8 lg:py-3 hover:bg-gray-100 hover:shadow"
               >
-                Voir les biens
+                Mettre en location
               </Link>
               <Link
-                href="/contact"
+                href="/biens"
                 className="px-4 py-2 max-md:text-xs text-white transition duration-300 bg-primary border border-gray-600 rounded-lg lg:px-8 lg:py-3 hover:bg-secondary hover:shadow-xl"
               >
-                Nous Contactez
+                Voir les biens
               </Link>
             </div>
           </div>

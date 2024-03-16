@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Inter,
+  Nunito,
+  Playfair_Display,
+} from "next/font/google";
 import "./globals.css";
 import Footer from "@/ui/components/Footer";
 import Navigation from "@/ui/components/Navigation";
@@ -10,7 +15,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Head from "next/head";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Nunito({
+  weight: "variable",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: SITECONFIG.seo.name,

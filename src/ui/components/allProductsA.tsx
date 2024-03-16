@@ -3,9 +3,9 @@ import ProductCard from "./ProductCard";
 type Props = {};
 
 const AllProductsA = async (props: Props) => {
-  const biens = await prisma.property.findMany({
+  const biens = await prisma.appartement.findMany({
     orderBy: {
-      createdAt: "desc",
+      // createdAt: "desc",
     },
     take: 3,
   });
