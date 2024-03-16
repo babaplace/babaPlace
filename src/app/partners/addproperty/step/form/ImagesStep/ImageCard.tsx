@@ -7,7 +7,7 @@ interface Props {
   handleAddOns: (category: CategorieType) => void;
 }
 const CategorySelectCard: React.FC<Props> = ({ category, handleAddOns }) => {
-  const { label, description, id } = category;
+  const { label, id } = category;
   const { category: CategoryStore } = useFormStore();
 
   const isChecked = CategoryStore.id === category.id;
@@ -29,7 +29,6 @@ const CategorySelectCard: React.FC<Props> = ({ category, handleAddOns }) => {
         />
         <div className="flex flex-col ">
           <h4 className="text-black font-medium text-sm">{label}</h4>
-          <p className="text-gray-500text-xs">{description}</p>
         </div>
       </div>
     </article>
