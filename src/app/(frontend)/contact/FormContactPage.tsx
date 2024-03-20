@@ -1,5 +1,6 @@
 "use client";
-import { Button } from "@/ui/modules/shad-cn/ui/button";
+import { Button, buttonVariants } from "@/ui/modules/shad-cn/ui/button";
+import { Card, CardContent } from "@/ui/modules/shad-cn/ui/card";
 import {
   Form,
   FormControl,
@@ -14,6 +15,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import SuccesIcon from "./SuccesIcon";
+import Link from "next/link";
 
 type Props = {};
 
@@ -66,77 +69,92 @@ const FormContactPage = ({}: Props) => {
 
   return (
     <div>
-      <Form {...form}>
-        <form className="mx-8 space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
-          <div>
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Nom</FormLabel>
-                  <FormControl>
-                    <input
-                      type="text"
-                      className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
-                      placeholder="john Doe"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+      {mutationContact.isSuccess ? (
+        <div className="p-6">
+          <div className="text-center justify-center items-center gap-4 flex flex-col">
+            <SuccesIcon />
+            <h2 className="font-extrabold text-xl">Message envoyé</h2>
+            <Link href="/" className={buttonVariants({ variant: "outline" })}>
+              Retour à l&apos;accueil
+            </Link>
           </div>
-          <div>
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Votre Email</FormLabel>
-                  <FormControl>
-                    <input
-                      className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
-                      placeholder="Jonh@doe.ma"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div>
-            <FormField
-              control={form.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Message</FormLabel>
-                  <FormControl>
-                    <textarea
-                      className="w-full p-6 text-sm border-b-2 border-gray-400 rounded-lg outline-none opacity-50 focus:border-primary"
-                      placeholder="un message"
-                      {...field}
-                    ></textarea>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <Button
-            disabled={mutationContact.isPending || mutationContact.isSuccess}
-            type="submit"
-            className="w-full mt-2"
+        </div>
+      ) : (
+        <Form {...form}>
+          <form
+            className="mx-8 space-y-8"
+            onSubmit={form.handleSubmit(onSubmit)}
           >
-            {mutationContact.isPending ? "En cours..." : " Envoyer"}
-          </Button>
-        </form>
-      </Form>
+            <div>
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Nom</FormLabel>
+                    <FormControl>
+                      <input
+                        type="text"
+                        className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
+                        placeholder="john Doe"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div>
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Votre Email</FormLabel>
+                    <FormControl>
+                      <input
+                        className="w-full p-2 text-sm border-b-2 border-gray-400 outline-none opacity-50 focus:border-primary"
+                        placeholder="Jonh@doe.ma"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div>
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <textarea
+                        className="w-full p-6 text-sm border-b-2 border-gray-400 rounded-lg outline-none opacity-50 focus:border-primary"
+                        placeholder="votre message"
+                        {...field}
+                      ></textarea>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <Button
+              disabled={mutationContact.isPending || mutationContact.isSuccess}
+              type="submit"
+              className="w-full mt-2"
+            >
+              {mutationContact.isPending ? "En cours..." : " Envoyer"}
+            </Button>
+          </form>
+        </Form>
+      )}
     </div>
   );
 };
