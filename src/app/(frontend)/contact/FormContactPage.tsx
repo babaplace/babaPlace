@@ -9,8 +9,10 @@ import {
   FormMessage,
 } from "@/ui/modules/shad-cn/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 type Props = {};
@@ -22,6 +24,7 @@ const formContactPageSchema = z.object({
   email: z.string().email("l'email est obligatoire et doit etre valide."),
   message: z.string().optional(),
 });
+type formContactPageSchema = z.infer<typeof formContactPageSchema>;
 
 const FormContactPage = ({}: Props) => {
   const form = useForm<z.infer<typeof formContactPageSchema>>({
@@ -33,15 +36,32 @@ const FormContactPage = ({}: Props) => {
     },
   });
 
+  const mutationContact = useMutation({
+    mutationFn: async (values: formContactPageSchema) => {
+      await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify({ ...values }),
+      });
+    },
+    onSuccess: () => {
+      toast.success("Votre contact a été pris en compte ", {
+        description:
+          "On va vous contacter sous peu de temps. Merci pour votre confiance !",
+      });
+    },
+    onError: () => {
+      toast.error("Il y'a eu une erreur", {
+        description: "Veuillez ressayer Plus Tard",
+      });
+    },
+  });
+
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formContactPageSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
-    await fetch("/api/send", {
-      method: "POST",
-      body: JSON.stringify({ ...values }),
-    });
+    mutationContact.mutate(values);
+    form.reset();
   }
 
   return (
@@ -108,8 +128,12 @@ const FormContactPage = ({}: Props) => {
             />
           </div>
 
-          <Button type="submit" className="w-full mt-2">
-            Envoyer
+          <Button
+            disabled={mutationContact.isPending || mutationContact.isSuccess}
+            type="submit"
+            className="w-full mt-2"
+          >
+            {mutationContact.isPending ? "En cours..." : " Envoyer"}
           </Button>
         </form>
       </Form>

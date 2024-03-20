@@ -30,21 +30,25 @@ const ButtonNext: React.FC<Props> = ({ step }) => {
     if (step === 0 && address && city) {
       setCurrentStep(1);
     }
-    if (step === 1 && category.id && category.name) {
+    if (step === 1) {
       setCurrentStep(2);
     }
-
-    if (step === 2) {
+    if (step === 2 && category.id && category.name) {
       setCurrentStep(3);
     }
+
     if (step === 3) {
       setCurrentStep(4);
     }
     if (step === 4) {
       setCurrentStep(5);
     }
-    if (step === 5 && Images.length > 0) {
+
+    if (step === 5) {
       setCurrentStep(6);
+    }
+    if (step === 6 && Images.length > 0) {
+      setCurrentStep(7);
     }
   };
   return (

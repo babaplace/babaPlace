@@ -16,6 +16,11 @@ const ImageUploadSchema = z.object({
 });
 
 const propertyScheme = z.object({
+  partner: z.object({
+    name: z.string(),
+    email: z.string().email(),
+    phone: z.string().optional(),
+  }),
   city: z.string(),
   address: z.string(),
   category: CategorieSchema,
@@ -37,13 +42,12 @@ const propertyScheme = z.object({
 export const createBiens = Authaction(propertyScheme, async (data) => {
   const partner = await prisma.partner.create({
     data: {
-      name: "Salim",
-      email: "a@gmail.com",
-      phone: "684499226",
+      ...data.partner,
     },
   });
 
   console.log("start...");
+
   const appartement = await prisma.appartement.create({
     data: {
       address: data.address,
@@ -61,8 +65,6 @@ export const createBiens = Authaction(propertyScheme, async (data) => {
       partnerId: partner.id,
     },
   });
-
-  console.log(data.Images);
 
   data.Images.map(async (image) => {
     await prisma.media.create({

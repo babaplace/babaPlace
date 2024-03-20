@@ -8,6 +8,7 @@ import DetailsForm from "./DetailsStep/DetailsForm";
 import OptionsForm from "./OptionsStep/OptionsForm";
 import ImagesForm from "./ImagesStep/ImagesForm";
 import PricingForm from "./PricingStep/PricingForm";
+import InfosPartnerForm from "./InfosPartnerStep/InfosPartnerForm";
 
 const FormLayout = () => {
   const { currentStep } = useFormSteps();
@@ -34,12 +35,13 @@ const FormLayout = () => {
   return (
     <section className="basis-2/3 px-16 pt-8 pb-4">
       {currentStep === 0 && <BasicForm />}
-      {currentStep === 1 && <SelectCategorieForm />}
-      {currentStep === 2 && <PricingForm />}
-      {currentStep === 3 && <DetailsForm />}
-      {currentStep === 4 && <OptionsForm />}
-      {currentStep === 5 && <ImagesForm />}
-      {currentStep === 6 && <SummaryForm />}
+      {currentStep === 1 && <InfosPartnerForm />}
+      {currentStep === 2 && <SelectCategorieForm />}
+      {currentStep === 3 && <PricingForm />}
+      {currentStep === 4 && <DetailsForm />}
+      {currentStep === 5 && <OptionsForm />}
+      {currentStep === 6 && <ImagesForm />}
+      {currentStep === 7 && <SummaryForm />}
     </section>
   );
 };

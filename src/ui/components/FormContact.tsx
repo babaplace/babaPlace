@@ -65,6 +65,7 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     mutationContact.mutate(values);
+    form.reset();
   }
 
   return (
@@ -128,7 +129,7 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
               )}
             />
             <Button
-              disabled={mutationContact.isPending}
+              disabled={mutationContact.isPending || mutationContact.isSuccess}
               className="w-full rounded-none mt-4 px-4 py-3 text-white font-bold "
               type="submit"
             >

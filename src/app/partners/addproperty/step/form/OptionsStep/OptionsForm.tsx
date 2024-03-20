@@ -42,8 +42,8 @@ const OptionsForm = () => {
         </div>
       </div>
       <div className="hidden md:flex justify-between items-center">
-        <ButtonBack step={4} />
-        <ButtonNext step={4} />
+        <ButtonBack step={5} />
+        <ButtonNext step={5} />
       </div>
     </div>
   );

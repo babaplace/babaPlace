@@ -25,8 +25,8 @@ const SelectCategorieForm: React.FC = () => {
       </div>
 
       <div className="hidden md:flex justify-between items-center">
-        <ButtonBack step={1} />
-        <ButtonNext step={1} />
+        <ButtonBack step={2} />
+        <ButtonNext step={2} />
       </div>
     </div>
   );

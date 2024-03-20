@@ -116,8 +116,8 @@ const DetailsForm = () => {
         </div>
       </div>
       <div className="hidden md:flex justify-between items-center my-8">
-        <ButtonBack step={3} />
-        <ButtonNext step={3} />
+        <ButtonBack step={4} />
+        <ButtonNext step={4} />
       </div>
     </div>
   );

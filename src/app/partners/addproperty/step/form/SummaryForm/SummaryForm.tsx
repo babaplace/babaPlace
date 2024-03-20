@@ -21,6 +21,7 @@ const SummaryForm = () => {
     prix,
     nbreEtages,
     city,
+    partner,
     niveau,
     toilettes,
     terasse,
@@ -63,9 +64,26 @@ const SummaryForm = () => {
 
           <div className="border border-gray-100 rounded-lg p-4">
             <div className="flex justify-between items-start">
+              <h1 className="text-xl font-extrabold">Vos Infos personnelles</h1>
+              <button
+                onClick={() => setCurrentStep(1)}
+                className="w-fit text-gray-500hover:text-primary text-sm underline justify-end"
+              >
+                Modifier
+              </button>
+            </div>
+            <div className="divide-y-2 divide-dotted flex flex-col ">
+              <ItemList label="Nom" value={partner.name} />
+              <ItemList label="Email" value={partner.email} />
+              <ItemList label="Telephone" value={partner.phone} />
+            </div>
+          </div>
+
+          <div className="border border-gray-100 rounded-lg p-4">
+            <div className="flex justify-between items-start">
               <h1 className="text-xl font-extrabold">Prix</h1>
               <button
-                onClick={() => setCurrentStep(2)}
+                onClick={() => setCurrentStep(3)}
                 className="w-fit text-gray-500hover:text-primary text-sm underline justify-end"
               >
                 Modifier
@@ -83,7 +101,7 @@ const SummaryForm = () => {
             <div className="flex justify-between items-start">
               <h1 className="text-xl font-extrabold">Details sur le bien</h1>
               <button
-                onClick={() => setCurrentStep(3)}
+                onClick={() => setCurrentStep(4)}
                 className="w-fit text-gray-500hover:text-primary text-sm underline justify-end"
               >
                 Modifier
@@ -103,7 +121,7 @@ const SummaryForm = () => {
             <div className="flex justify-between items-start">
               <h1 className="text-xl font-extrabold">Composants sur le bien</h1>
               <button
-                onClick={() => setCurrentStep(4)}
+                onClick={() => setCurrentStep(5)}
                 className="w-fit text-gray-500hover:text-primary text-sm underline justify-end"
               >
                 Modifier
@@ -121,7 +139,7 @@ const SummaryForm = () => {
             <div className="flex justify-between items-start">
               <h1 className="text-xl font-extrabold">Photos</h1>
               <button
-                onClick={() => setCurrentStep(5)}
+                onClick={() => setCurrentStep(6)}
                 className="w-fit text-gray-500hover:text-primary text-sm underline justify-end"
               >
                 Modifier
@@ -144,7 +162,7 @@ const SummaryForm = () => {
       </div>
 
       <div className="hidden md:flex justify-between items-center">
-        <ButtonBack step={6} />
+        <ButtonBack step={8} />
         <SummaryButton successful={successful} setSuccessful={setSuccessful} />
       </div>
     </div>

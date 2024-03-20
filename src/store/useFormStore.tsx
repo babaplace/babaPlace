@@ -3,6 +3,12 @@ import { create } from "zustand";
 
 export type FormStore = {
   city: string;
+  partner: {
+    name: string;
+    email: string;
+    phone: string;
+  };
+
   address: string;
   category: CategorieType;
   chambres: number;
@@ -18,6 +24,9 @@ export type FormStore = {
   details: string;
   prix: number;
   caution: number;
+  setPartnerName: (newName: string) => void;
+  setPartnerEmail: (newEmail: string) => void;
+  setPartnerPhone: (newPhone: string) => void;
   addImage: (newImage: ImageUploadType) => void;
   removeImage: (newImage: ImageUploadType) => void;
   setSurface: (newSurface: number) => void;
@@ -40,6 +49,11 @@ export type FormStore = {
 
 export const useFormStore = create<FormStore>((set) => {
   return {
+    partner: {
+      name: "",
+      email: "",
+      phone: "",
+    },
     nbreEtages: 0,
     Images: [],
     surface: 0,
@@ -59,6 +73,13 @@ export const useFormStore = create<FormStore>((set) => {
     niveau: 0,
     prix: 0,
     caution: 0,
+    setPartnerName: (newName: string) =>
+      set((state) => ({ partner: { ...state.partner, name: newName } })),
+    setPartnerEmail: (newEmail: string) =>
+      set((state) => ({ partner: { ...state.partner, email: newEmail } })),
+    setPartnerPhone: (newPhone: string) =>
+      set((state) => ({ partner: { ...state.partner, phone: newPhone } })),
+
     addImage(newImage) {
       set((state) => ({
         Images: [...state.Images, newImage],
@@ -97,7 +118,6 @@ export const useFormStore = create<FormStore>((set) => {
         city: "",
         address: "",
         surface: 0,
-
         nbreEtages: 0,
         category: {
           label: "",

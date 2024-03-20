@@ -24,6 +24,11 @@ const ImageUploadSchema = z.object({
 });
 
 const propertyScheme = z.object({
+  partner: z.object({
+    name: z.string(),
+    email: z.string().email(),
+    phone: z.string().optional(),
+  }),
   city: z.string(),
   address: z.string(),
   category: CategorieSchema,
@@ -61,6 +66,7 @@ const SummaryButton: React.FC<Props> = ({ successful, setSuccessful }) => {
     chambres,
     surface,
     details,
+    partner,
     cuisine,
     salons,
     resetForm,
@@ -106,21 +112,19 @@ const SummaryButton: React.FC<Props> = ({ successful, setSuccessful }) => {
         chambres,
         surface,
         cuisine,
+        partner,
       } satisfies propertyScheme).then(() => {
         toast.success("Soumission Reussi ! ", {
           description: "Nous allons vous contacter le plus vite possible",
         });
+        setSuccessful(true);
+        setTimeout(() => {
+          setSuccessful(false);
+          resetForm();
+          setCurrentStep(0);
+        }, 5000);
         router.push("/");
       });
-
-      console.log(res);
-
-      setSuccessful(true);
-      setTimeout(() => {
-        setSuccessful(false);
-        resetForm();
-        setCurrentStep(0);
-      }, 5000);
     }
   };
 

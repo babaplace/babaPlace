@@ -36,7 +36,7 @@ const PricingForm = () => {
             </label>
             <input
               type="number"
-              placeholder="Rue hollande Mt Fleurie 2"
+              placeholder="caution"
               id="caution"
               name="caution"
               defaultValue={caution}
@@ -48,8 +48,8 @@ const PricingForm = () => {
         </div>
       </div>
       <div className="hidden md:flex justify-between items-center my-8">
-        <ButtonBack step={2} />
-        <ButtonNext step={2} />
+        <ButtonBack step={3} />
+        <ButtonNext step={3} />
       </div>
     </div>
   );

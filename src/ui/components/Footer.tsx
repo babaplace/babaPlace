@@ -28,11 +28,9 @@ const Footer = (props: Props) => {
           <li className="flex items-center justify-center gap-2 text-gray-700 transition hover:text-gray-700/75">
             <Phone className="text-green-500" absoluteStrokeWidth />
             <div className="flex flex-col">
-              <a href="tel:+212684499227">+212 68 44 99 227</a>
-              <a href="tel:+212684024990">+212 68 40 24 990</a>
+              <a href="tel:+---">+212 -- -- -- ---</a>
             </div>
           </li>
-
           <li className="flex items-center justify-center gap-2 text-primary transition hover:text-primary">
             <Mail className="text-red-500" absoluteStrokeWidth />
 

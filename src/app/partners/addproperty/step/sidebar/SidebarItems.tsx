@@ -4,6 +4,7 @@ import StepItem from "./StepItem";
 const SidebarItems = () => {
   const stepLabels = [
     "Localisation",
+    "Infos du Bailleur",
     "Type",
     "Pricing",
     "Details",

@@ -24,9 +24,9 @@ export default function Navigation() {
             <Mail className="text-red-500" absoluteStrokeWidth />
             babaplace9@gmail.com
           </Link>
-          <Link href={"tel:00224684499227"} className="flex gap-2 items-center">
+          <Link href={"tel:"} className="flex gap-2 items-center">
             <Phone className="text-green-500" absoluteStrokeWidth />
-            +212 68 44 99 227
+            +212 -- -- -- ---
           </Link>
         </div>
       </div>

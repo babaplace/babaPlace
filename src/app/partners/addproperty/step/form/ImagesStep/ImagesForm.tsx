@@ -76,8 +76,8 @@ const ImagesForm = () => {
       </div>
 
       <div className="hidden md:flex justify-between items-center">
-        <ButtonBack step={5} />
-        <ButtonNext step={5} />
+        <ButtonBack step={6} />
+        <ButtonNext step={6} />
       </div>
     </div>
   );

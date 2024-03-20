@@ -49,6 +49,12 @@ const NavigationMobile = () => {
       {currentStep === 6 && (
         <div className="w-full flex items-center justify-between">
           <ButtonBack step={6} />
+          <ButtonNext step={6} />
+        </div>
+      )}
+      {currentStep === 7 && (
+        <div className="w-full flex items-center justify-between">
+          <ButtonBack step={7} />
           <SummaryButton
             successful={successful}
             setSuccessful={setSuccessful}
