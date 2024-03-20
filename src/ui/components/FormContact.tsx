@@ -81,7 +81,7 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
                   <FormItem>
                     <FormLabel>Nom</FormLabel>
                     <FormControl>
-                      <Input placeholder="salma essrrhir" {...field} />
+                      <Input placeholder="john doe" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -95,7 +95,7 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="salma@gmail.com" {...field} />
+                      <Input placeholder="john@gmail.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
