@@ -122,7 +122,7 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
                 <FormItem>
                   <FormLabel>Message (optionnel)</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="salma@gmail.com" {...field} />
+                    <Textarea placeholder="votre message" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
