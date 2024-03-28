@@ -58,7 +58,7 @@ export default function Navigation() {
             </a>
           </div>
           <div className="text-white">
-            <a href="" className="flex items-center gap-2">
+            <a href="tel:+212720802039" className="flex items-center gap-2">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ export default function Navigation() {
                   />
                 </svg>
               </span>
-              <span>+212 68 44 12</span>
+              <span>+212 72 08 02 039</span>
             </a>
           </div>
         </div>
