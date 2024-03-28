@@ -30,7 +30,7 @@ const ProductCard = ({ property }: Props) => {
         <p className="text-xs text-gray-500 italic">{property.address}</p>
 
         <div className="flex justify-between items-center">
-          <p>{property.chambres} Chambres</p>
+          <p>{property.surface ?? 0} m2</p>
           <p className="text-lg font-bold">{property.prix} MAD</p>
         </div>
         <div className="flex justify-end my-2">
