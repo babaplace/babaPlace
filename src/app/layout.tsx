@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Cormorant_Garamond,
-  Inter,
-  Nunito,
-  Playfair_Display,
-} from "next/font/google";
+import { Sofia_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/ui/components/Footer";
 import Navigation from "@/ui/components/Navigation";
@@ -12,10 +7,9 @@ import { SITECONFIG } from "@/config/site/siteConfig";
 import { Providers } from "@/context/Providers";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Head from "next/head";
 import Script from "next/script";
 
-const inter = Nunito({
+const inter = Sofia_Sans({
   weight: "variable",
   subsets: ["latin"],
 });

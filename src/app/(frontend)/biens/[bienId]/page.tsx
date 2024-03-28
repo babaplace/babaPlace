@@ -1,7 +1,18 @@
 import { prisma } from "@/db/prisma";
 import { ContactForm } from "@/ui/components/FormContact";
-import OptionProduct from "@/ui/components/OptionProduct";
-import { Bed, Building2, Home, Landmark, LocateFixed } from "lucide-react";
+import {
+  Bed,
+  Building,
+  Building2,
+  Home,
+  LandPlot,
+  Landmark,
+  LocateFixed,
+  LucideIcon,
+  Ruler,
+  UtensilsCrossed,
+  Waves,
+} from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -16,115 +27,123 @@ const SingleBienPage = async ({ params }: { params: { bienId: string } }) => {
   console.log(property);
 
   return (
-    <div>
-      <section className="bg-gradient-to-b from-gray-900 to-neutral-800 text-white text-center py-12">
+    <div className="bg-gray-50">
+      {/* <section className="bg-gradient-to-b from-gray-900 to-neutral-800 text-white text-center py-12">
         <h1 className="text-3xl md:text-6xl font-bold">Appartement</h1>
-      </section>
+      </section> */}
 
       <div className="container mx-auto py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Section - Images */}
-          <div className="flex flex-col">
-            <div className="relative h-96">
+        {/* image sections */}
+        <div>
+          <div className="relative">
+            <Image
+              className="w-full max-h-96 object-cover rounded-xl shadow-lg shadow-gray-100"
+              src={property.baseimageUrl}
+              alt={property.address}
+              width={500}
+              height={500}
+            />
+          </div>
+
+          <div className="flex flex-wrap   items-center my-2">
+            {property.medias.map((media) => (
               <Image
-                src={property.baseimageUrl}
-                alt="Product"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
+                className="max-md:hidden w-56 h-56 object-cover border rounded-xl"
+                src={media.url}
+                alt={String(media.size) ?? property.address}
+                width={200}
+                height={200}
+                key={media.id}
               />
-            </div>
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              {/* Additional images */}
-              {property.medias.map((media) => (
-                <div key={media.id} className="relative h-48">
-                  <Image
-                    src={media.url}
-                    alt={`image de ${property.balcon}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
-                  />
-                </div>
-              ))}
+            ))}
+          </div>
+        </div>
+
+        <div className="md:relative my-12">
+          <div className="bg-white my-6 shadow-lg md:absolute md:top-0 max-md:fixed max-md:-bottom-10 max-md:shadow-2xl max-md:shadow-red-100 max-md:rounded-lg max-md:w-full  md:-right-10 max-md:right-0 max-md:left-0  rounded-lg md:max-w-xl min-w-[25rem] p-4">
+            <h1 className="font-bold  text-2xl">
+              A partir de{" "}
+              <span className="text-primary">{property.prix} MAD</span>{" "}
+            </h1>
+            <p className="text-lg font-light max-md:mb-8">
+              Caution : {property.caution} MAD
+            </p>
+          </div>
+          {/* informations */}
+          <div className="bg-white my-6 shadow-sm rounded-sm max-w-3xl p-6">
+            <h1 className="font-bold  text-2xl">Informations </h1>
+            {/* datails */}
+            <div>
+              <div className="my-4  gap-16  grid max-md:gap-4 md:flex items-center">
+                <ItemInfos title="Ville" value={property.city} />
+                <ItemInfos title="Adresse" value={property.address} />
+                <ItemInfos title="Caution" value={`MAD  ${property.caution}`} />
+                <ItemInfos title="Chambres" value={property.chambres} />
+              </div>
             </div>
           </div>
 
-          {/* Right Section - Property Details */}
-          <div className="flex flex-col">
-            {/* Property Title */}
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              {property.address}
-            </h1>
-
-            {/* Price */}
-            <div className="flex items-center mb-4">
-              <span className="text-gray-700 text-lg font-bold mr-2">
-                Prix:
-              </span>
-              <span className="text-primary text-xl font-bold">
-                {property.prix} MAD
-              </span>
-            </div>
-
-            {/* Caution */}
-            <div className="flex items-center mb-4">
-              <span className="text-gray-700 text-lg font-bold mr-2">
-                Caution:
-              </span>
-              <span className="text-sm">{property.caution} MAD</span>
-            </div>
-
-            {/* Surface */}
-            <div className="flex items-center mb-4">
-              <span className="text-gray-700 text-lg font-bold mr-2">
-                Surface:
-              </span>
-              <span className="text-sm">{property.surface} m²</span>
-            </div>
-
-            {/* Contact Form */}
-            <div className="mb-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                Nous contacter pour ce bien
-              </h3>
-              <ContactForm propertyId={property.id} />
-            </div>
-
-            {/* Description */}
-            <div className="mb-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                Description
-              </h3>
-              <p className="text-sm text-gray-700">{property?.details}</p>
-            </div>
-
-            {/* More Details */}
+          {/* Details */}
+          <div className="bg-white my-6 shadow-sm rounded-sm max-w-3xl p-6">
+            <h1 className="font-bold  text-2xl">Details </h1>
+            <p className="text-lg font-light ">{property.details}</p>
+            {/* datails */}
             <div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                Plus de détails
-              </h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <OptionProduct
-                  title="Ville"
-                  value={`${property.city}`}
-                  Icon={Building2}
+              <div className="my-6  gap-10 grid grid-cols-2 md:grid-cols-4  items-center flex-wrap">
+                <ItemInfosIcon
+                  Icon={LandPlot}
+                  title="Surface"
+                  value={`${property.surface} m2`}
                 />
-                <OptionProduct
-                  title="Quartier"
-                  value={property.address}
-                  Icon={Landmark}
-                />
-                <OptionProduct
-                  title="Chambres"
-                  value={property.chambres ?? 0}
+                <ItemInfosIcon
                   Icon={Bed}
+                  title="Chambres"
+                  value={`${property.chambres ?? 0}`}
                 />
-                <OptionProduct
-                  title="Ville"
-                  value={property.city}
-                  Icon={LocateFixed}
+                <ItemInfosIcon
+                  Icon={UtensilsCrossed}
+                  title="Cuisine"
+                  value={`${property.cuisine ?? 0}`}
                 />
+                <ItemInfosIcon
+                  Icon={Building2}
+                  title="Etage"
+                  value={`${property.niveau ?? 0}`}
+                />
+                <ItemInfosIcon
+                  Icon={Building}
+                  title="Nombre d'etages"
+                  value={`${property.nbreEtages ?? 0}`}
+                />
+                <ItemInfosIcon
+                  Icon={Waves}
+                  title="Toilettes"
+                  value={`${property.toilettes ?? 0}`}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Contacts */}
+          <div className="bg-white my-6 shadow-sm rounded-sm max-w-3xl p-6">
+            <h1 className="font-bold  text-2xl mb-4">
+              Je veux en savoir plus ou reservez ce bien ?{" "}
+            </h1>
+            {/* datails */}
+            <div>
+              <ContactForm />
+            </div>
+          </div>
+
+          {/* Autres infos  */}
+          <div className="bg-white my-6 shadow-sm rounded-sm max-w-3xl p-6">
+            <h1 className="font-bold  text-2xl mb-6">Autres Composants </h1>
+            {/* datails */}
+            <div>
+              <div className="my-4 gap-4 flex-wrap  md:gap-16 flex items-center">
+                <OptionsCard value="Terrasse" isShow={property.terasse} />
+                <OptionsCard value="Balcon" isShow={property.balcon} />
+                <OptionsCard value="Salon" isShow={property.salons} />
               </div>
             </div>
           </div>
@@ -135,3 +154,56 @@ const SingleBienPage = async ({ params }: { params: { bienId: string } }) => {
 };
 
 export default SingleBienPage;
+
+const ItemInfos = ({
+  title,
+  value,
+}: {
+  title: string;
+  value?: string | null | number;
+}) => {
+  return value ? (
+    <div>
+      <p className="font-extralight my-1 text-xs">{title}</p>
+      <h4 className="my-1 text-lg font-semibold">{value}</h4>
+    </div>
+  ) : null;
+};
+
+const ItemInfosIcon = ({
+  title,
+  value,
+  Icon,
+}: {
+  title: string;
+  value?: string | null | number;
+  Icon: LucideIcon;
+}) => {
+  return value ? (
+    <div className="flex items-start gap-2">
+      <Icon className="text-primary" />
+      <div>
+        <p className="font-extralight text-xs mb-1  ">{title}</p>
+        <h4 className=" text-lg font-semibold">{value}</h4>
+      </div>
+    </div>
+  ) : null;
+};
+
+const OptionsCard = ({
+  value,
+  isShow = false,
+}: {
+  value: string;
+  isShow: boolean | null;
+}) => {
+  return isShow ? (
+    <div className="flex flex-col gap-1 items-start ">
+      <p
+        className={`gap-4 md:flex-col md:justify-between items-start p-4 px-8 md:px-16 w-full block text-center shadow-sm border rounded-lg    border-gray-300   cursor-pointer  uppercase`}
+      >
+        {value}
+      </p>
+    </div>
+  ) : null;
+};

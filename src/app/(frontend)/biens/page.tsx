@@ -23,14 +23,15 @@ const BiensPage = async ({ searchParams }: Props) => {
     <div>
       <section className="relative p-16 text-center bg-biens bg-cover lg:p-20">
         <div className="z-40 absolute top-0 right-0 left-0  bottom-0 flex justify-center items-center ">
-          <h1 className="font-bold text-xl md:text-4xl text-center bg-clip-text text-transparent bg-gradient-to-b from-gray-50 to-neutral-200 py-16">
-            Decouvrez votre futur logement
-          </h1>
+          <h2 className=" text-5xl  lg:text-6xl text-white">
+            Decouvrez votre futur
+            <span className="text-primary"> logement !</span>
+          </h2>
         </div>
         <div className="absolute top-0 bottom-0 left-0 right-0 z-10 w-full h-full bg-black bg-opacity-45"></div>
       </section>
 
-      <SearchSection />
+      {/* <SearchSection /> */}
 
       {biens.length > 0 ? (
         <section className="px-4  max-w-screen-3xl mx-auto py-4  lg:px-20 lg:py-8">
