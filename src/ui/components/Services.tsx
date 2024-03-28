@@ -13,7 +13,7 @@ const services = [
   {
     Icon: School,
     title: "Louez",
-    description: "Trouvez rapidement des locataires",
+    description: "Trouvez rapidement votre appartement",
   },
   {
     Icon: BadgeDollarSign,

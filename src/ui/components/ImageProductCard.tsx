@@ -31,7 +31,7 @@ export function ImagePropertyCard({
         </h3>
         <div className="flex justify-between items-center">
           <p className="text-xs font-extrabold text-gray-900">
-            {property.city} {property.address}
+            {property.city}
           </p>
           <p className="text-lg font-bold text-primary">MAD {property.prix}</p>
         </div>

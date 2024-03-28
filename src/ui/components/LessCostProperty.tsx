@@ -5,12 +5,12 @@ import { ImagePropertyCard } from "./ImageProductCard";
 type Props = {};
 
 const LessCostProperties = async (props: Props) => {
-  // const lessCostProperties = await prisma.property.findMany({
-  //   orderBy: {
-  //     price: "desc",
-  //   },
-  //   take: 3,
-  // });
+  const lessCostProperties = await prisma.appartement.findMany({
+    orderBy: {
+      prix: "desc",
+    },
+    take: 3,
+  });
   return (
     <div className="bg-gray-50">
       <div className="mx-auto max-w-screen-xl max-md:mx-6 px-4">
@@ -22,9 +22,9 @@ const LessCostProperties = async (props: Props) => {
           </div>
 
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-            {/* {lessCostProperties.map((property) => (
+            {lessCostProperties.map((property) => (
               <ImagePropertyCard key={property.id} property={property} />
-            ))} */}
+            ))}
           </div>
         </div>
       </div>
