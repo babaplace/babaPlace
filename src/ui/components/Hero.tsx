@@ -25,10 +25,10 @@ const Hero = (props: Props) => {
           }}
           className="z-50 max-md:mx-14 flex flex-col justify-center items-center"
         >
-          <motion.h1 className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
+          <motion.h1 className="font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
             Trouver un Logement - Mettre en location
           </motion.h1>
-          <motion.p className="font-bold md:text-sm text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 text-xl">
+          <motion.p className="font-bold text-xs md:text-sm text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 ">
             Des chambres modernes et <br /> confortables à deux pas de votre
             université
           </motion.p>
