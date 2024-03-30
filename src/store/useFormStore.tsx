@@ -135,6 +135,11 @@ export const useFormStore = create<FormStore>((set) => {
         details: "",
         prix: 0,
         caution: 0,
+        partner: {
+          name: "",
+          email: "",
+          phone: "",
+        },
       }),
   };
 });

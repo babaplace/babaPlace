@@ -63,6 +63,10 @@ export const createBiens = Authaction(propertyScheme, async (data) => {
       surface: data.surface,
       nbreEtages: data.nbreEtages,
       partnerId: partner.id,
+      cuisine: data.cuisine,
+      details: data.details,
+      category: data.category.name,
+      chambres: data.chambres,
     },
   });
 

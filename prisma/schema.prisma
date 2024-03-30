@@ -42,7 +42,7 @@ model Appartement {
   id           String   @id @default(uuid())
   city         String
   address      String
-  chambres     Int?
+  chambres     Int
   salons       Boolean?
   toilettes    Int
   surface      Int
@@ -50,7 +50,7 @@ model Appartement {
   terasse      Boolean?
   niveau       Int
   balcon       Boolean?
-  cuisine      Int?
+  cuisine      Int      @default(0)
   details      String?
   prix         Float
   caution      Float
