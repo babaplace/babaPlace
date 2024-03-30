@@ -39,11 +39,14 @@ model Media {
 }
 
 model Appartement {
-  id           String   @id @default(uuid())
-  city         String
-  address      String
-  chambres     Int
-  salons       Boolean?
+  id       String   @id @default(uuid())
+  city     String
+  verified Boolean  @default(false)
+  sold     Boolean  @default(false)
+  address  String
+  chambres Int
+  salons   Boolean?
+
   toilettes    Int
   surface      Int
   nbreEtages   Int
@@ -64,10 +67,14 @@ model Appartement {
 }
 
 model Chambres {
-  id        String   @id @default(uuid())
+  id        String @id @default(uuid())
   city      String
   address   String
   toilettes Int
+
+  verified Boolean @default(false)
+  sold     Boolean @default(false)
+
   surface   Int
   terasse   Boolean?
   niveau    Int
