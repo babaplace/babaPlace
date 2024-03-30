@@ -41,8 +41,8 @@ model Media {
 model Appartement {
   id       String   @id @default(uuid())
   city     String
-  verified Boolean  @default(false)
-  sold     Boolean  @default(false)
+  verified Boolean? @default(false)
+  sold     Boolean? @default(false)
   address  String
   chambres Int
   salons   Boolean?
