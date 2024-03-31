@@ -5,8 +5,9 @@ import React from "react";
 
 interface Props {
   step: number;
+  verifyZod?: <T>(data: T) => void;
 }
-const ButtonNext: React.FC<Props> = ({ step }) => {
+const ButtonNext: React.FC<Props> = ({ step, verifyZod }) => {
   const {
     Images,
     address,
@@ -27,6 +28,7 @@ const ButtonNext: React.FC<Props> = ({ step }) => {
   } = useFormStore();
   const { setCurrentStep } = useFormSteps();
   const handleNextStep = () => {
+    // verifyZod();
     if (step === 0 && address && city) {
       setCurrentStep(1);
     }

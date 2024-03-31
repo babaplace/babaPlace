@@ -6,6 +6,7 @@ import { z } from "zod";
 import { createBiens } from "../../../property.action";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { useMutation } from "@tanstack/react-query";
 
 interface Props {
   successful: boolean;
@@ -87,6 +88,22 @@ const SummaryButton: React.FC<Props> = ({ successful, setSuccessful }) => {
     surface,
   });
 
+  const mutation = useMutation({
+    mutationFn: (data: propertyScheme) => createBiens(data),
+    onSuccess: () => {
+      toast.success("Soumission Reussi ! ", {
+        description: "Nous allons vous contacter le plus vite possible",
+      });
+      setSuccessful(true);
+      setTimeout(() => {
+        setSuccessful(false);
+        resetForm();
+        setCurrentStep(0);
+      }, 5000);
+      router.push("/");
+    },
+  });
+
   const handleSubmit = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -97,7 +114,7 @@ const SummaryButton: React.FC<Props> = ({ successful, setSuccessful }) => {
           url: image.url,
         });
       });
-      const res = await createBiens({
+      const data = {
         Images,
         address,
         category,
@@ -113,24 +130,14 @@ const SummaryButton: React.FC<Props> = ({ successful, setSuccessful }) => {
         surface,
         cuisine,
         partner,
-      } satisfies propertyScheme).then(() => {
-        toast.success("Soumission Reussi ! ", {
-          description: "Nous allons vous contacter le plus vite possible",
-        });
-        setSuccessful(true);
-        setTimeout(() => {
-          setSuccessful(false);
-          resetForm();
-          setCurrentStep(0);
-        }, 5000);
-        router.push("/");
-      });
+      } satisfies propertyScheme;
+      mutation.mutate(data);
     }
   };
 
   return (
-    <Button size={"sm"} onClick={handleSubmit}>
-      Confirmer
+    <Button size={"sm"} onClick={handleSubmit} disabled={mutation.isPending}>
+      {mutation.isPending ? "loading.." : "Confirmer"}
     </Button>
   );
 };

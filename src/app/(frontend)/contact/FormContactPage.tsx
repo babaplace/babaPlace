@@ -61,8 +61,6 @@ const FormContactPage = ({}: Props) => {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formContactPageSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     mutationContact.mutate(values);
     form.reset();
   }
