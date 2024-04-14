@@ -69,75 +69,73 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
   }
 
   return (
-    <Card className="p-4 shadow-none rounded-none">
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="grid gap-4 lg:grid-cols-2">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Nom</FormLabel>
-                    <FormControl>
-                      <Input placeholder="john doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+    <div className=" shadow-none rounded-none">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <div className="grid gap-4 lg:grid-cols-2">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nom</FormLabel>
+                  <FormControl>
+                    <Input placeholder="john doe" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="john@gmail.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
             <FormField
               control={form.control}
-              name="phone"
+              name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Telephone</FormLabel>
+                  <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="+212 00 00 00 000" {...field} />
+                    <Input placeholder="john@gmail.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Message (optionnel)</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="votre message" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button
-              disabled={mutationContact.isPending || mutationContact.isSuccess}
-              className="w-full rounded-none mt-4 px-4 py-3 text-white font-bold "
-              type="submit"
-            >
-              {mutationContact.isPending ? "En cours..." : " Envoyer"}
-            </Button>
-          </form>
-        </Form>
-      </CardContent>
-    </Card>
+          </div>
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Telephone</FormLabel>
+                <FormControl>
+                  <Input placeholder="+212 00 00 00 000" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Message (optionnel)</FormLabel>
+                <FormControl>
+                  <Textarea placeholder="votre message" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button
+            disabled={mutationContact.isPending || mutationContact.isSuccess}
+            className="w-full rounded-none mt-4 px-4 py-3 text-white font-bold "
+            type="submit"
+          >
+            {mutationContact.isPending ? "En cours..." : " Envoyer"}
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 }
