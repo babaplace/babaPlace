@@ -32,7 +32,7 @@ const SingleBienPage = async ({ params }: { params: { bienId: string } }) => {
         <h1 className="text-3xl md:text-6xl font-bold">Appartement</h1>
       </section> */}
 
-      <div className="container mx-auto py-12">
+      <div className="container mx-auto py-12 grid md:grid-cols-2 gap-4">
         {/* image sections */}
         <div>
           <div className="relative">
@@ -59,8 +59,8 @@ const SingleBienPage = async ({ params }: { params: { bienId: string } }) => {
           </div>
         </div>
 
-        <div className="md:relative my-12">
-          <div className="bg-white my-6 shadow-lg md:absolute md:top-0 max-md:fixed max-md:-bottom-10 max-md:shadow-2xl max-md:shadow-red-100 max-md:rounded-lg max-md:w-full  md:-right-10 max-md:right-0 max-md:left-0  rounded-lg md:max-w-xl min-w-[25rem] p-4">
+        <div className="md:relative ">
+          <div className="bg-white my-6 shadow-lg md:top-0 max-md:fixed  max-md:rounded-lg max-md:w-full  rounded-lg md:max-w-xl min-w-[25rem] p-4">
             <h1 className="font-bold  text-2xl">
               A partir de{" "}
               <span className="text-primary">{property.prix} MAD</span>{" "}
